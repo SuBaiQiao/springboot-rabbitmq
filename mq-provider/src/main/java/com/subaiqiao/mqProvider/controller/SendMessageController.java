@@ -1,5 +1,6 @@
 package com.subaiqiao.mqProvider.controller;
 
+import com.alibaba.fastjson2.JSON;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class SendMessageController {
         map.put("messageId", messageId);
         map.put("message", message);
         map.put("sendTime", new Date());
-        rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
+        rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", JSON.toJSONString(map));
         return "ok";
     }
 }
