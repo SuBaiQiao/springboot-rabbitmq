@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 直连型交换机
+ * 其实消费者不需要加这个，这个是为了可以发送消息
  */
 @Configuration
 public class DirectRabbitConfig {
