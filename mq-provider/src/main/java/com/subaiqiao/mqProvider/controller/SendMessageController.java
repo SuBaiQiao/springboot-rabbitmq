@@ -54,4 +54,12 @@ public class SendMessageController {
         return "ok";
     }
 
+    @GetMapping("/fanout/send")
+    public String fanoutSendMessage() {
+        String message = "message: fanout message";
+        Map<String, Object> map = createMessage(message);
+        rabbitTemplate.convertAndSend("fanoutExchange", null, JSON.toJSONString(map));
+        return "ok";
+    }
+
 }
