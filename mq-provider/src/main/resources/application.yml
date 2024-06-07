@@ -10,3 +10,5 @@ spring:
     port: 5672
     username: guest
     password: guest
+    publisher-returns: true
+    publisher-confirm-type: correlated
